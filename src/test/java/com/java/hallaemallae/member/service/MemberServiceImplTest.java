@@ -1,7 +1,8 @@
 package com.java.hallaemallae.member.service;
 
-import com.java.hallaemallae.member.dto.MemberDto;
-import com.java.hallaemallae.member.entity.Member;
+import com.java.hallaemallae.domain.member.dto.MemberDto;
+import com.java.hallaemallae.domain.member.entity.Member;
+import com.java.hallaemallae.domain.member.service.MemberService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

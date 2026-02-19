@@ -1,7 +1,7 @@
-package com.java.hallaemallae.member.controller;
+package com.java.hallaemallae.domain.member.controller;
 
-import com.java.hallaemallae.member.dto.MemberDto;
-import com.java.hallaemallae.member.service.MemberService;
+import com.java.hallaemallae.domain.member.dto.MemberDto;
+import com.java.hallaemallae.domain.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

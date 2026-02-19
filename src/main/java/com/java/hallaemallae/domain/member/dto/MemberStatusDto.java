@@ -1,6 +1,6 @@
-package com.java.hallaemallae.member.dto;
+package com.java.hallaemallae.domain.member.dto;
 
-import com.java.hallaemallae.member.entity.MemberStatus;
+import com.java.hallaemallae.domain.member.entity.MemberStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

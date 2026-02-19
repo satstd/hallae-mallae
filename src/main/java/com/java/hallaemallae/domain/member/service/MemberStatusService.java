@@ -1,8 +1,8 @@
-package com.java.hallaemallae.member.service;
+package com.java.hallaemallae.domain.member.service;
 
-import com.java.hallaemallae.member.dto.MemberDto;
-import com.java.hallaemallae.member.dto.MemberStatusDto;
-import com.java.hallaemallae.member.entity.MemberStatus;
+import com.java.hallaemallae.domain.member.dto.MemberDto;
+import com.java.hallaemallae.domain.member.dto.MemberStatusDto;
+import com.java.hallaemallae.domain.member.entity.MemberStatus;
 
 public interface MemberStatusService {
     MemberStatus getMemberStatus(Long memberSeq);

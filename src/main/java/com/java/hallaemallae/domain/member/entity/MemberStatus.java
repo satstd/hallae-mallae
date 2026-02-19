@@ -1,4 +1,4 @@
-package com.java.hallaemallae.member.entity;
+package com.java.hallaemallae.domain.member.entity;
 
 import com.java.hallaemallae.util.entity.BaseTimeEntity;
 import jakarta.persistence.*;

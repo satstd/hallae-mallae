@@ -1,6 +1,6 @@
-package com.java.hallaemallae.member.repository;
+package com.java.hallaemallae.domain.member.repository;
 
-import com.java.hallaemallae.member.entity.Member;
+import com.java.hallaemallae.domain.member.entity.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface MemberRepository extends JpaRepository<Member, Long> {
