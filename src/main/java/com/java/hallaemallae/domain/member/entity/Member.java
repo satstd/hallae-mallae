@@ -1,5 +1,6 @@
 package com.java.hallaemallae.domain.member.entity;
 
+import com.java.hallaemallae.domain.auth.service.jwt.Role;
 import com.java.hallaemallae.util.entity.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.*;
@@ -19,6 +20,8 @@ public class Member extends BaseTimeEntity {
     private String loginId;
     private String password;
     private String nickname;
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     public void changePassword(String password) {
         this.password = password;
