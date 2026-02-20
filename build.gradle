@@ -25,16 +25,26 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
+    //DATA
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    runtimeOnly 'com.mysql:mysql-connector-j'
+
+    //SECURITY
     implementation 'org.springframework.boot:spring-boot-starter-security'
 
 
-    runtimeOnly 'com.mysql:mysql-connector-j'
+    //JWT
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+
+    //ENV
     implementation 'me.paulschwarz:spring-dotenv:4.0.0'
 
+    //UTIL
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.projectlombok:lombok'
