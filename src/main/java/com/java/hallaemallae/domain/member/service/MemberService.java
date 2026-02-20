@@ -2,8 +2,9 @@ package com.java.hallaemallae.domain.member.service;
 
 import com.java.hallaemallae.domain.member.dto.MemberDto;
 import com.java.hallaemallae.domain.member.entity.Member;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
-public interface MemberService {
+public interface MemberService extends UserDetailsService {
     Member saveMember(MemberDto.Request dto);
     Member getMemberBySeq(Long seq);
     Member getMemberByLoginId(String loginId);

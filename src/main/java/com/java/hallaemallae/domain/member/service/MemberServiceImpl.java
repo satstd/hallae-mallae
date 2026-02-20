@@ -1,10 +1,14 @@
 package com.java.hallaemallae.domain.member.service;
 
+import com.java.hallaemallae.domain.auth.service.jwt.Role;
+import com.java.hallaemallae.domain.member.dto.AuthDetails;
 import com.java.hallaemallae.exception.MemberLoginIdDuplicatedException;
 import com.java.hallaemallae.domain.member.dto.MemberDto;
 import com.java.hallaemallae.domain.member.entity.Member;
 import com.java.hallaemallae.domain.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,6 +30,7 @@ public class MemberServiceImpl implements MemberService {
                 .nickname(dto.getNickname())
                 .loginId(dto.getLoginId())
                 .password(passwordEncoder.encode(dto.getPassword()))
+                .role(Role.ROLE_MEMBER)
                 .build();
         return memberRepository.save(member);
     }
@@ -61,5 +66,16 @@ public class MemberServiceImpl implements MemberService {
             return;
         }
         memberRepository.delete(member);
+    }
+
+    //인증시 사용될 메서드
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Member member = getMemberByLoginId(username);
+        return new AuthDetails(
+                member.getMemberSeq(),
+                member.getLoginId(),
+                member.getPassword(),
+                member.getRole().name());
     }
 }
