@@ -5,6 +5,7 @@ import com.java.hallaemallae.domain.user.dto.UserRequestDto;
 import com.java.hallaemallae.domain.user.entity.User;
 import com.java.hallaemallae.domain.user.repository.UserRepository;
 import com.java.hallaemallae.domain.user.service.interfaces.UserService;
+import com.java.hallaemallae.global.common.ErrorCode;
 import com.java.hallaemallae.global.exception.UserAlreadyExistException;
 import com.java.hallaemallae.global.exception.UserNotFoundException;
 import jakarta.transaction.Transactional;
@@ -30,7 +31,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     public User signUp(UserRequestDto request) {
         boolean exists = userRepository.existsUserByUsername(request.getUsername());
         if (exists) {
-            throw new UserAlreadyExistException("이미 존재하는 사용자 아이디 입니다.");
+            throw new UserAlreadyExistException(ErrorCode.USER_ALREADY_EXIST);
         }
         User user = User.createUser(request, passwordEncoder);
         return userRepository.save(user);
@@ -39,14 +40,14 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Override
     public User findUserByUsername(String username) {
         return userRepository.findUserByUsername(username)
-                .orElseThrow(() -> new UserNotFoundException("일치하는 사용자를 찾을 수 없습니다. :" + username));
+                .orElseThrow(() -> new UserNotFoundException(ErrorCode.USER_NOT_FOUND));
     }
 
     @Override
     @Transactional
     public User updateUser(UserDetail userDetail, UserRequestDto request) {
         User user = userRepository.findById(userDetail.getUserId())
-                .orElseThrow(() -> new UserNotFoundException("사용자를 찾을 수 없습니다."));
+                .orElseThrow(() -> new UserNotFoundException(ErrorCode.USER_NOT_FOUND));
         user.changePassword(request.getPassword());
         user.changeNickname(request.getNickname());
         return user;
