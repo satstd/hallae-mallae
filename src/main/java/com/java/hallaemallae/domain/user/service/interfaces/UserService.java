@@ -8,4 +8,6 @@ public interface UserService {
     User signUp(UserRequestDto request);
     User findUserByUsername(String username);
     User updateUser(UserDetail userDetail, UserRequestDto request);
+
+    void deleteMember(UserDetail userDetail);
 }
