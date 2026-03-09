@@ -1,0 +1,5 @@
+package com.java.hallaemallae.domain.user.service;
+
+public enum Role {
+    ROLE_USER, ROLE_ADMIN
+}
