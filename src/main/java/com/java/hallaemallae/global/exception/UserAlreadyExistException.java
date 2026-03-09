@@ -1,7 +1,9 @@
 package com.java.hallaemallae.global.exception;
 
-public class UserAlreadyExistException extends RuntimeException {
-    public UserAlreadyExistException(String message) {
-        super(message);
+import com.java.hallaemallae.global.common.ErrorCode;
+
+public class UserAlreadyExistException extends CustomException {
+    public UserAlreadyExistException(ErrorCode code) {
+        super(code);
     }
 }

@@ -1,7 +1,9 @@
 package com.java.hallaemallae.global.exception;
 
-public class UserNotFoundException extends RuntimeException {
-    public UserNotFoundException(String message) {
-        super(message);
+import com.java.hallaemallae.global.common.ErrorCode;
+
+public class UserNotFoundException extends CustomException {
+    public UserNotFoundException(ErrorCode code) {
+        super(code);
     }
 }
