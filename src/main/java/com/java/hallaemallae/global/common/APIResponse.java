@@ -61,4 +61,8 @@ public class APIResponse<T> {
     public static <T> APIResponse<T> create() {
         return new APIResponse<>(StatusCode.CREATED.getStatusCode(), StatusCode.CREATED.getMessage(), null);
     }
+
+    public static <T> APIResponse<T> create(T data) {
+        return new APIResponse<>(StatusCode.CREATED.getStatusCode(), StatusCode.CREATED.getMessage(), data);
+    }
 }
